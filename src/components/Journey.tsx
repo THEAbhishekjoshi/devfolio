@@ -18,21 +18,21 @@ gsap.registerPlugin(
 const stages = [
     {
         title: "Student",
-        image: "/charmander1.png",
+        image: "/char4.png",
     },
     {
         title: "Developer",
-        image: "/charmeleon.png",
+        image: "/chameleonY.png",
     },
     {
         title: "Engineer",
-        image: "/charizard1.png",
+        image: "/charizardX.png",
     }
 ];
 
-export default function Journey() {
-    const sectionRef =
-        useRef<HTMLDivElement>(null);
+export default function Journey({ sectionRef }: { sectionRef: React.RefObject<HTMLDivElement | null> }) {
+    // const sectionRef =
+    //     useRef<HTMLDivElement>(null);
 
     const [activeIndex,
         setActiveIndex] =
@@ -53,9 +53,10 @@ export default function Journey() {
                                 `${index * 25}% top`,
 
                             end:
-                                `${(index + 1) * 25}% top`,
+                                "bottom top",
 
                             scrub: true,
+                            markers: false,
 
                             onEnter: () =>
                                 setActiveIndex(
@@ -89,57 +90,41 @@ export default function Journey() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="">
-            <div className="  grid grid-cols-2 items-center px-10">
-                {/* left image */}
-                <div className="flex justify-center">
-                    <img
-                        src={
-                            stages[
-                                activeIndex
-                            ].image
-                        }
-                        alt="avatar"
-                        className="h-80 object-contain transition-all duration-500"
-                    />
-                </div>
 
-                {/* right timeline */}
-                <div className="space-y-6">
-                    {stages.map(
-                        (
-                            stage,
-                            index
-                        ) => (
-                            <div
-                                key={
-                                    stage.title
-                                }
-                                className={`
-                  text-3xl
-                  transition-all
-                  duration-300
-                  ${activeIndex ===
-                                        index
-                                        ? "text-white glow"
-                                        : "text-white/30"
-                                    }
-                `}
-                            >
-                                {stage.title}
-
-                                {index !==
-                                    stages.length -
-                                    1 && (
-                                        <div>
-                                            ↓
-                                        </div>
-                                    )}
-                            </div>
-                        )
-                    )}
-                </div>
+        <div className=" mt-10 grid grid-cols-2 items-center ">
+            {/* left image */}
+            <div className="flex justify-center">
+                <img
+                    src={
+                        stages[
+                            activeIndex
+                        ].image
+                    }
+                    alt="avatar"
+                    className="h-80 object-contain transition-all duration-500"
+                />
             </div>
-        </section>
+
+            {/* right timeline */}
+            <div className="space-y-6">
+                {stages.map(
+                    (stage, index) => (
+                        <div
+                            key={stage.title}
+                            className={` flex flex-col items-center  text-3xl transition-all duration-300 ${activeIndex === index
+                                ? "text-yellow-400 glow"
+                                : "text-white/30"
+                                }
+                            `}>
+                            {stage.title}
+
+                            {index !== stages.length - 1 && <div className="  ">↓</div>}
+                        </div>
+                    )
+                )}
+            </div>
+        </div>
+
     );
 }
+

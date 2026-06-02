@@ -34,3 +34,25 @@ body {
     0 4px 0 #000,
     0 -4px 0 #000;
 }
+
+/* ── Battle Scene animations ── */
+@keyframes spriteFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes battleShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(6px);
+  }
+}
