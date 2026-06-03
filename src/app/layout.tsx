@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Press_Start_2P } from "next/font/google";
+import { Geist, Geist_Mono, Press_Start_2P, Space_Mono, VT323 } from "next/font/google";
 import "./globals.css";
 // import "nes.css/css/nes.min.css";
 
@@ -9,6 +9,19 @@ const pressStart = Press_Start_2P({
   weight: "400",
   subsets: ["latin"],
 });
+
+const spaceMono = Space_Mono({
+  variable: "--font-space",
+  weight: ["400", "700"],
+  subsets: ["latin"],
+});
+
+const vt323 = VT323({
+  variable: "--font-vt",
+  weight: "400",
+  subsets: ["latin"],
+});
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -32,7 +45,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={` ${pressStart.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={` ${pressStart.variable} ${spaceMono.variable} ${vt323.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
