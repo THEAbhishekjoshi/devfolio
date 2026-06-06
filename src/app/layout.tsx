@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Press_Start_2P, Space_Mono, VT323 } from "next/font/google";
+import { Geist, Geist_Mono, Press_Start_2P, Space_Mono, VT323, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-// import "nes.css/css/nes.min.css";
 
 
 const pressStart = Press_Start_2P({
   variable: "--font-press",
   weight: "400",
+  subsets: ["latin"],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-grotesk",
   subsets: ["latin"],
 });
 
@@ -45,7 +49,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={` ${pressStart.variable} ${spaceMono.variable} ${vt323.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={` ${pressStart.variable} ${spaceGrotesk.variable} ${spaceMono.variable} ${vt323.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
