@@ -53,43 +53,49 @@ export default function WorkCArdDetials() {
     const [activeWorkId, setActiveWorkId] = useState<string[]>([])
 
     return (
-        <div className='flex flex-col gap-7 mt-5 items-center'>
+        <div className='flex flex-col gap-12 mt-5 items-center'>
             {
-                workCardDetails.map((item) => {
+                workCardDetails.slice(0, 5).map((item) => {
                     return (
-                        <div className='w-full flex flex-col gap-7' key={item.id}>
-                            <div className='flex justify-between '  >
-                                <div className='flex-col group'>
-                                    <div className='text-white flex gap-2'>
-                                        <button className='hidden group-hover:block text-yellow-400'
-                                            onClick={() => {
-                                                if (activeWorkId.includes(item.id)) {
-                                                    setActiveWorkId(prev => prev.filter(id => id !== item.id))
-                                                } else {
-                                                    setActiveWorkId(prev => [...prev, item.id])
-                                                }
-                                            }}>{'>'}</button>
-                                        {item.company}
+                        <div className="w-full flex flex-row gap-2 group">
+                            {/* toggle button */}
+                            <button className={`h-full  lg:hidden lg:group-hover:block text-yellow-400 transition-transform duration-300 ${activeWorkId.includes(item.id) ? 'rotate-90' : ''}`}
+                                onClick={() => {
+                                    if (activeWorkId.includes(item.id)) {
+                                        setActiveWorkId(prev => prev.filter(id => id !== item.id))
+                                    } else {
+                                        setActiveWorkId(prev => [...prev, item.id])
+                                    }
+                                }}>{'>'}
+                            </button>
+                            {/* toggle content */}
+                            <div className='w-full flex flex-col gap-10 ' key={item.id}>
+                                <div className='flex flex-col gap-2 md:flex-row md:gap-0 md:justify-between '>
+                                    <div className='flex flex-col  '>
+
+                                        <div className='text-xs lg:text-sm'>{item.company}</div>
+
+                                        <div className='text-xs lg:text-sm text-white/80'>{item.role}</div>
                                     </div>
-                                    <div className='text-sm text-white/80'>{item.role}</div>
+                                    <div className='flex-col'>
+                                        <div className='text-xs lg:text-sm'>{item.duration}</div>
+                                        <div className='text-start md:text-end text-xs lg:text-sm text-white/80'>{item.location}</div>
+                                    </div>
                                 </div>
-                                <div className='flex-col'>
-                                    <div className='text-sm text-white/80'>{item.duration}</div>
-                                    <div className='text-end text-sm text-white/80'>{item.location}</div>
-                                </div>
+                                {activeWorkId.includes(item.id) &&
+
+                                    <div className='flex flex-col text-md text-white/80 gap-2 font-space font-semibold'>
+                                        {item.responsibilities.map((resp) => {
+                                            return (
+                                                <div className="flex flex-row gap-2 ">
+                                                    <span className='text-pink-400 font-press'>{'>'}</span>
+                                                    <div className="text-white/70">{resp}</div>
+                                                </div>
+                                            )
+                                        })}
+                                    </div>}
+
                             </div>
-                            {activeWorkId.includes(item.id) &&
-
-                                <div className='flex flex-col text-[0.5rem] text-white/80 gap-2'>
-                                    {item.responsibilities.map((resp) => {
-                                        return (
-                                            <div>
-                                                <span className='text-pink-400'>{'>'}</span>{resp}
-                                            </div>
-                                        )
-                                    })}
-                                </div>}
-
                         </div>
 
 
@@ -100,6 +106,13 @@ export default function WorkCArdDetials() {
                 })
             }
 
+            {workCardDetails.length > 5 && (
+                <div className="flex justify-center mt-4">
+                    <button className="w-32 sm:w-42  lg:w-48 border-white/60 border-2 p-2 md:p-3 text-center text-[0.5rem] sm:text-xs lg:text-sm rounded hover:bg-white/10 transition-colors cursor-pointer">
+                        Show More
+                    </button>
+                </div>
+            )}
         </div>
 
     )
