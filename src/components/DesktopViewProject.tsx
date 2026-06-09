@@ -45,15 +45,16 @@ export default function DesktopViewProject({ projectList }: { projectList: proje
                 </div>
 
                 <div className="p-4 flex-1 flex flex-col">
-                    <div className="w-full h-full ">
+
+                    <div className="relative h-[20rem] w-full rounded-t-md overflow-hidden">
                         <Image
-                            src='/valley1.jpg' // You can make this dynamic later: activeProject.image
-                            width={400}
-                            height={300}
+                            src={activeProject.links.imageLink}
+                            fill
                             alt={activeProject.name}
-                            className="object-cover rounded-t-md w-full h-full"
+                            className="object-cover"
                         />
                     </div>
+
 
                     <div className="bg-black/60 backdrop-blur-xl rounded-b-md border border-white/10 p-4 flex flex-col gap-7 text-white">
                         {/* Dynamic Title */}

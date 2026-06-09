@@ -5,7 +5,6 @@ import { projectListType } from "./Projects"
 
 
 export default function MobileViewProejct({ projectList }: { projectList: projectListType[] }) {
-    const [activeProject, setActiveProject] = useState(projectList[0]);
 
     return (
         <div className="flex flex-col gap-5 sm:gap-10">
@@ -24,13 +23,12 @@ export default function MobileViewProejct({ projectList }: { projectList: projec
                         </div>
 
                         <div className="p-4 flex-1 flex flex-col">
-                            <div className="w-full h-full ">
+                            <div className="relative h-[20rem] w-full rounded-t-md overflow-hidden">
                                 <Image
                                     src={project.links.imageLink}
-                                    width={300}
-                                    height={200}
+                                    fill
                                     alt={project.name}
-                                    className="object-cover rounded-t-md w-full h-full"
+                                    className="object-cover"
                                 />
                             </div>
 
