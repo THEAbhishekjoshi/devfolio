@@ -9,6 +9,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import WorkCardDetails from '@/components/WorkCardDetails'
 import Projects from '@/components/Projects'
+import Skills from '@/components/Skills'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -190,6 +191,11 @@ export default function MainPage() {
           <div className='font-bold text-xl mb-10'>Projects</div>
           {/* experience cards */}
           <Projects />
+        </section>
+
+        <section className='w-full h-full mt-8 py-5 px-2'>
+          <div className='font-bold text-xl mb-10'>Skills</div>
+          <Skills />
         </section>
       </div>
     </div>
