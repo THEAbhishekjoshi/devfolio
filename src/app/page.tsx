@@ -4,14 +4,12 @@ import PixelBar from '../components/PixelBar'
 import BattleScene from '@/components/BattleScene'
 import SocialBar from '@/components/SocialBar'
 import { useEffect, useState } from 'react';
-
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import WorkCardDetails from '@/components/WorkCardDetails'
 import Projects from '@/components/Projects'
 import Skills from '@/components/Skills'
+import End from '@/components/End'
 
-gsap.registerPlugin(ScrollTrigger);
+
 
 const titleList = [
   "Full stack developer",
@@ -197,6 +195,8 @@ export default function MainPage() {
           <div className='font-bold text-xl mb-10'>Skills</div>
           <Skills />
         </section>
+
+        <End />
       </div>
     </div>
   )
