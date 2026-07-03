@@ -1,9 +1,12 @@
 "use client";
 
+import { div } from "motion/react-client";
+import { useEffect, useState } from "react";
+
 const socials = [
   {
     name: "GitHub",
-    url: "https://github.com/", // ← put your username
+    url: "https://github.com/THEAbhishekjoshi",
     color: "hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -13,7 +16,7 @@ const socials = [
   },
   {
     name: "LinkedIn",
-    url: "https://linkedin.com/in/", // ← put your username
+    url: "https://www.linkedin.com/in/abhishek-joshi-403a6423b/",
     color: "hover:text-[#0A66C2] hover:drop-shadow-[0_0_8px_rgba(10,102,194,0.6)]",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -23,8 +26,8 @@ const socials = [
   },
   {
     name: "Twitter",
-    url: "https://x.com/", // ← put your username
-    color: "hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]",
+    url: "https://x.com/buildWithAbhi",
+    color: "hover:text-black hover:drop-shadow-[0_0_12px_rgba(0,0,0,0.8)]",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -32,80 +35,103 @@ const socials = [
     ),
   },
   {
-    name: "LeetCode",
-    url: "https://leetcode.com/u/", // ← put your username
-    color: "hover:text-[#FFA116] hover:drop-shadow-[0_0_8px_rgba(255,161,22,0.6)]",
+    name: "Email",
+    url: "mailto:abhishekjoshi.739.ak@gmail.com",
+    color: "hover:text-red-500 hover:drop-shadow-[0_0_8px_rgba(239,68,68,0.6)]",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-        <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z" />
+      <svg
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className="w-6 h-6"
+      >
+        <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z" />
       </svg>
     ),
   },
-];
+]
 
-const stats = [
-  { label: "PROJECTS", value: "23+" },
-  { label: "COMMITS", value: "500+" },
-  { label: "LEVEL", value: "99" },
-];
+
 
 export default function SocialBar() {
+  const [contribution, setContribution] = useState<number | null>(null)
+
+  const stats = [
+    { label: "PROJECTS", value: "5+" },
+    { label: "CONTRIBUTIONS", value: contribution },
+    { label: "INTERNSHIPS", value: "2" },
+  ]
+
+  useEffect(() => {
+    fetch('/api/github')
+      .then(res => res.json())
+      .then(data => {
+        setContribution(data.contributionCalendar.totalContributions)
+      })
+  }, [])
   return (
-    <div className="flex items-center justify-between h-full relative z-10 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-4 w-full">
 
-      {/*  Left: tagline  */}
-      <div className="flex flex-col gap-2 shrink-0">
-        <p className="text-yellow-300 text-[0.6rem] tracking-wider">
-          {">"} Quote i live by?
-        </p>
-        <p className="text-white/40 text-[0.4rem] leading-relaxed max-w-[14rem] break-words">
-          The powerful play goes on and you may contribute a verse. What will your verse be?.
-        </p>
-        <div className="flex items-center gap-1.5 mt-1">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-          </span>
-          <span className="text-green-400 text-[0.4rem] tracking-widest">
-            AVAILABLE FOR QUESTS
-          </span>
-        </div>
-      </div>
-
-      {/*  Center: stats  */}
-      <div className="flex items-center gap-6">
+      {/* stats  */}
+      <div className="flex items-start justify-between md:justify-start lg:justify-center w-full order-1 lg:order-2 ">
         {stats.map((stat, i) => (
-          <div key={stat.label} className="flex items-center gap-6">
+          <div key={stat.label} className="flex items-start gap-2 sm:gap-4">
             <div className="flex flex-col items-center gap-1">
-              <span className="text-white text-sm tracking-wide">{stat.value}</span>
-              <span className="text-white/30 text-[0.35rem] tracking-widest">{stat.label}</span>
+              <span className="text-white text-xs lg:text-sm tracking-wide">
+                {contribution === null ? (
+                  <div className="w-8 h-4 rounded bg-white/10 animate-pulse" />
+                ) : (
+                  `${stat.label === "CONTRIBUTIONS" ? `${contribution}+` : stat.value}`
+                )}
+              </span>
+              <span className="text-white/30 text-[0.30rem] md:text-[0.35rem] lg:text-[0.45rem] tracking-widest text-center">{stat.label === "CONTRIBUTIONS" ? <div className="flex flex-col items-center">
+                <div>{stat.label}</div>
+                <div className="text-[0.25rem] md:text-[0.3rem] lg:text-[0.35rem] uppercase">(last 3 months)</div>
+              </div> : stat.label}</span>
             </div>
             {i < stats.length - 1 && (
-              <div className="w-px h-6 bg-white/10" />
+              <div className="w-px h-6 bg-white/10 mr-1 md:mr-6 lg:mr-2 mt-1" />
             )}
           </div>
         ))}
       </div>
 
-      {/*  Right: social icons  */}
-      <div className="flex items-center gap-4 shrink-0">
-        {socials.map((s) => (
-          <a
-            key={s.name}
-            href={s.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            title={s.name}
-            className={`
+      {/* social icons  */}
+      <div className="flex items-center justify-between md:justify-end w-full gap-3 sm:gap-4 lg:gap-6 order-2 lg:order-3">
+        {socials.map((s) => {
+          const isEmail = s.url.startsWith("mailto:")
+          return (
+            <a
+              key={s.name}
+              href={s.url}
+              {...(!isEmail && {
+                target: "_blank",
+                rel: "noopener noreferrer",
+              })}
+              title={s.name}
+              className={`
               p-2.5 bg-white/5 border border-white/10 rounded-lg
               text-white/40 transition-all duration-300
               hover:bg-white/10 hover:border-white/20 hover:scale-110
+              w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center
+              
               ${s.color}
             `}
-          >
-            {s.icon}
-          </a>
-        ))}
+            >
+              {s.icon}
+            </a>)
+        })}
+      </div>
+
+      {/* tagline  */}
+      <div className="flex items-center justify-center lg:justify-start w-full order-3 lg:order-1 mt-3 md:mt-7 lg:mt-3 md:col-span-2 lg:col-span-1 font-bold font-space">
+        <div className="flex flex-col gap-1 w-full md:w-3/4 lg:w-full">
+          <p className="text-white italic text-[0.7rem] lg:text-[0.8rem] leading-relaxed tracking-wider break-words  text-center lg:text-left">
+            &quot;The powerful play goes on and you may contribute a verse. What will your verse be?.&quot;
+          </p>
+          <p className="flex justify-end text-white/80 italic text-[0.7rem] sm:text-[0.8rem] lg:text-[0.8rem] leading-relaxed tracking-wider break-words  text-center lg:text-right pr-2 lg:pr-0">
+            - Steve Jobs
+          </p>
+        </div>
       </div>
     </div>
   );
