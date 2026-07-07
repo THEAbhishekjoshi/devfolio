@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Press_Start_2P, Space_Mono, VT323, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import NavBar from "@/components/NavBar";
 
 
 const pressStart = Press_Start_2P({
@@ -51,7 +52,10 @@ export default function RootLayout({
       lang="en"
       className={` ${pressStart.variable} ${spaceGrotesk.variable} ${spaceMono.variable} ${vt323.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-black font-press">
+        <NavBar />
+        {children}
+      </body>
     </html>
   );
 }

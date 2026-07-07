@@ -72,31 +72,33 @@ export default function SocialBar() {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-4 w-full">
 
       {/* stats  */}
-      <div className="flex items-start justify-between md:justify-start lg:justify-center w-full order-1 lg:order-2 ">
-        {stats.map((stat, i) => (
-          <div key={stat.label} className="flex items-start gap-2 sm:gap-4">
-            <div className="flex flex-col items-center gap-1">
-              <span className="text-white text-xs lg:text-sm tracking-wide">
-                {contribution === null ? (
-                  <div className="w-8 h-4 rounded bg-white/10 animate-pulse" />
-                ) : (
-                  `${stat.label === "CONTRIBUTIONS" ? `${contribution}+` : stat.value}`
-                )}
-              </span>
-              <span className="text-white/30 text-[0.30rem] md:text-[0.35rem] lg:text-[0.45rem] tracking-widest text-center">{stat.label === "CONTRIBUTIONS" ? <div className="flex flex-col items-center">
-                <div>{stat.label}</div>
-                <div className="text-[0.25rem] md:text-[0.3rem] lg:text-[0.35rem] uppercase">(last 3 months)</div>
-              </div> : stat.label}</span>
+      <div className="flex items-center w-full h-full order-1 lg:order-2">
+        <div className="flex items-start justify-between md:justify-start lg:justify-center w-full">
+          {stats.map((stat, i) => (
+            <div key={stat.label} className="flex items-start gap-2 sm:gap-4">
+              <div className="flex flex-col items-center gap-1">
+                <span className="text-white text-xs lg:text-sm tracking-wide">
+                  {contribution === null ? (
+                    <div className="w-8 h-4 rounded bg-white/10 animate-pulse" />
+                  ) : (
+                    `${stat.label === "CONTRIBUTIONS" ? `${contribution}+` : stat.value}`
+                  )}
+                </span>
+                <span className="text-white/30 text-[0.30rem] md:text-[0.35rem] lg:text-[0.45rem] tracking-widest text-center">{stat.label === "CONTRIBUTIONS" ? <div className="flex flex-col items-center">
+                  <div>{stat.label}</div>
+                  <div className="text-[0.25rem] md:text-[0.3rem] lg:text-[0.35rem] uppercase">(last 3 months)</div>
+                </div> : stat.label}</span>
+              </div>
+              {i < stats.length - 1 && (
+                <div className="w-px h-6 bg-white/10 mr-1 md:mr-6 lg:mr-2 mt-1" />
+              )}
             </div>
-            {i < stats.length - 1 && (
-              <div className="w-px h-6 bg-white/10 mr-1 md:mr-6 lg:mr-2 mt-1" />
-            )}
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* social icons  */}
-      <div className="flex items-center justify-between md:justify-end w-full gap-3 sm:gap-4 lg:gap-6 order-2 lg:order-3">
+      <div className="flex items-center justify-between md:justify-end w-full gap-3 sm:gap-4 lg:gap-6 order-2 lg:order-3 ">
         {socials.map((s) => {
           const isEmail = s.url.startsWith("mailto:")
           return (

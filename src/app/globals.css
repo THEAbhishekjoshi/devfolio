@@ -112,6 +112,23 @@ body {}
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: #c8ced6ac;
   }
+
+  .custom-scrollbar-devedex::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .custom-scrollbar-devedex::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar-devedex::-webkit-scrollbar-thumb {
+    background: #4d4a4a;
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar-devedex::-webkit-scrollbar-thumb:hover {
+    background: #c8ced6ac;
+  }
 }
 
 :root {

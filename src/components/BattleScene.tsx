@@ -74,7 +74,7 @@ export default function BattleScene() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center gap-3 w-[320px]">
+    <div className="flex flex-col items-center gap-3 w-[280px] xl:w-[325px]">
       {/* ── HP bar area ── */}
       <div className="w-full bg-black/70 border-2 border-white/60 rounded px-3 py-2 flex items-center justify-between">
         <div className="flex flex-col gap-1">
@@ -126,7 +126,7 @@ export default function BattleScene() {
       </div>
 
       {/* ── dialogue box ── */}
-      <div className="relative w-full battle-dialog-box bg-[#1a1a2e] border-[3px] border-white/80 rounded-md p-3 min-h-[68px]">
+      <div className="relative w-full battle-dialog-box bg-[#1a1a2e]/90 border-[3px] border-white/80 rounded-md p-3 min-h-[68px]">
         {/* inner highlight border */}
         <div className="absolute inset-[3px] border border-white/15 rounded pointer-events-none" />
 
@@ -149,7 +149,7 @@ export default function BattleScene() {
       </div>
 
       {/* ── battle menu ── */}
-      <div className="w-full bg-[#1a1a2e] border-[3px] border-white/80 rounded-md p-2.5 grid grid-cols-2 gap-x-4 gap-y-2">
+      <div className="w-full bg-[#1a1a2e]/90 border-[3px] border-white/80 rounded-md p-2.5 grid grid-cols-2 gap-x-4 gap-y-2">
         {menuItems.map((item, i) => (
           <button
             key={item.label}
