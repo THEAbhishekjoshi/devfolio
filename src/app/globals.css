@@ -220,3 +220,29 @@ body {}
   }
 
 }
+
+@keyframes questGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 14px rgba(250, 204, 21, 0.12);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(250, 204, 21, 0.22);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+.badge-tag-sm {
+  clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+}
