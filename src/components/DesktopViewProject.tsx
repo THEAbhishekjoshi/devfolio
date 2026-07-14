@@ -1,6 +1,6 @@
 'use Client'
 import { useState } from "react"
-import { projectListType } from "./Projects"
+import { projectListType } from "@/data/projectList"
 import { motion } from "framer-motion"
 import Image from "next/image"
 

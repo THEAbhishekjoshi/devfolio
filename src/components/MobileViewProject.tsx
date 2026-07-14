@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { projectListType } from "./Projects"
+import { projectListType } from "@/data/projectList"
 
 
 
