@@ -11,12 +11,6 @@ const titleList = [
     "Explorer"
 ]
 
-const battleLines = [
-    { text: "A wild RECRUITER appeared!", color: "text-white" },
-    { text: "ABHISHEK used FULL-STACK DEV!", color: "text-white" },
-    { text: "It's super effective!", color: "text-yellow-300" },
-    { text: "ABHISHEK gained 9999 XP!", color: "text-green-400" },
-]
 
 
 export default function HeroSmallerScreen() {
@@ -93,11 +87,11 @@ export default function HeroSmallerScreen() {
                                     </div>
                                     {/* Status indicator */}
                                     <div className="flex items-center gap-1.5">
-                                        <span className="relative flex h-1.5 w-1.5">
+                                        <span className="relative flex h-1 w-1.5">
                                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                             <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
                                         </span>
-                                        <span className="text-green-400 text-[7px] sm:text-[8px] tracking-widest font-mono">
+                                        <span className="text-green-400 text-[7px] sm:text-[8px] tracking-widest font-mono mt-0.5">
                                             AVAILABLE FOR QUESTS
                                         </span>
                                     </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 
 
@@ -8,7 +8,7 @@ const battleSequence = [
   { text: "A wild RECRUITER appeared!", color: "text-white" },
   { text: "Go! ABHISHEK!", color: "text-white" },
   { text: "ABHISHEK used FULL-STACK DEV!", color: "text-white" },
-  { text: "It's super effective! 💥", color: "text-yellow-300" },
+  { text: "It's super effective! ", color: "text-yellow-300" },
   { text: "RECRUITER fainted!", color: "text-red-400" },
   { text: "ABHISHEK gained 9999 XP!", color: "text-green-400" },
 ];
@@ -33,8 +33,7 @@ export default function BattleScene() {
   useEffect(() => {
     const msg = battleSequence[msgIndex].text;
     let i = 0;
-    setIsTyping(true);
-    setDisplayText("");
+
 
     const interval = setInterval(() => {
       if (i < msg.length) {
@@ -54,6 +53,8 @@ export default function BattleScene() {
 
         // auto‑advance after a pause
         timerRef.current = setTimeout(() => {
+          setIsTyping(true);
+          setDisplayText("");
           setMsgIndex((prev) => (prev + 1) % battleSequence.length);
         }, 2200);
       }

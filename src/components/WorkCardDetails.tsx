@@ -11,7 +11,9 @@ export default function WorkCardDetials() {
             {
                 workDetails.slice(0, 5).map((item) => {
                     return (
-                        <div className="w-full flex flex-row gap-2 group">
+                        <div
+                            key={item.id}
+                            className="w-full flex flex-row gap-2 group">
                             {/* toggle button */}
                             <button className={`p-1 h-full text-yellow-400 transition-transform duration-300 ${activeWorkId.includes(item.id) ? 'rotate-90 lg:block' : 'lg:hidden lg:group-hover:block'}`}
                                 onClick={() => {
@@ -23,7 +25,7 @@ export default function WorkCardDetials() {
                                 }}>{'>'}
                             </button>
                             {/* toggle content */}
-                            <div className='w-full flex flex-col gap-10 ' key={item.id}>
+                            <div className='w-full flex flex-col gap-10 '>
                                 <div className='flex flex-col gap-5 md:flex-row md:gap-0 md:justify-between '>
                                     <div className='flex flex-col gap-2 lg:flex-row lg:items-start lg:gap-3'>
                                         <div className="flex flex-col gap-1">
@@ -66,7 +68,9 @@ export default function WorkCardDetials() {
                                         <div className="flex flex-col gap-2">
                                             {item.responsibilities.map((resp) => {
                                                 return (
-                                                    <div className="flex flex-row gap-2 ">
+                                                    <div
+                                                        key={resp}
+                                                        className="flex flex-row gap-2">
                                                         <span className='text-pink-400 font-press'>{'>'}</span>
                                                         <div className="text-white/70">{resp}</div>
                                                     </div>

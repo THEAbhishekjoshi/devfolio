@@ -16,7 +16,7 @@ export default function ProfileCardV2() {
     // Typewriter effect
     useEffect(() => {
         let i = 0
-        let msgText = titleList[msgIndex]
+        const msgText = titleList[msgIndex]
         const interval = setInterval(() => {
             if (i < msgText.length) {
                 !isTyping && setIsTyping(true)
@@ -32,7 +32,6 @@ export default function ProfileCardV2() {
         }, 45)
         return () => clearInterval(interval)
     }, [msgIndex])
-    //border-4  border-green-400
     return (
         <div className='w-full max-w-[25rem] bg-black/80 p-1  h-[30rem] border-2  border-zinc-600 shadow-[8px_8px_0px_rgba(0,0,0,0.8)]'>
             <div className='border-2 border-[#4a4e69]  p-4 flex flex-col gap-5 h-full'>

@@ -34,9 +34,16 @@ export default function MobileViewProejct({ projectList }: { projectList: projec
                             <div className="flex flex-col gap-5 sm:gap-7 mt-5">
                                 <div className="flex flex-col gap-2">
                                     <div className="text-[0.5rem] sm:text-xs font-bold  tracking-widest text-yellow-400 uppercase ">Key Feature</div>
-                                    <div className="text-[0.4rem] sm:text-xs flex flex-col gap-2">{project.keyFeatures.slice(0, 3).map((keyFeature, idx) => (
-                                        <div className="line-clamp-2">{idx + 1}. {keyFeature}</div>
-                                    ))}</div>
+                                    <div className="text-[0.4rem] sm:text-xs flex flex-col gap-2">
+                                        {project.keyFeatures.slice(0, 3).map((keyFeature, idx) => (
+                                            <div
+                                                key={idx}
+                                                className="line-clamp-2"
+                                            >
+                                                {idx + 1}. {keyFeature}
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
 
                                 <div className="flex flex-col gap-2 ">

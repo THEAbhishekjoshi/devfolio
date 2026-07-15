@@ -104,7 +104,7 @@ export const projectList = [
             live: "https://cube-ai-interview.vercel.app/",
             imageLink: "/ProjectDemoImage/cubeaiinterview.png",
             imageMobileLink: "/ProjectDemoImage/cubeaiinterview_mobile.png",
-            icon: "/ProjectIcons/cubeaiinterview.png"
+            icon: "/ProjectIcons/cubeai.svg"
         }
 
     },

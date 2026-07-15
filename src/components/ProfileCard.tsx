@@ -17,7 +17,7 @@ export default function ProfileCard() {
     // Type write effect
     useEffect(() => {
         let i = 0
-        let msgText = titleList[msgIndex]
+        const msgText = titleList[msgIndex]
         const interval = setInterval(() => {
 
             if (i < msgText.length) {
@@ -73,10 +73,6 @@ export default function ProfileCard() {
                     <div className='min-w-0 break-words font-semibold'>MAHARAJA AGRASEN INSTITUTE OF TECHNOLOGY(MAIT)</div>
                     <div className='text-yellow-400 font-press text-xs'>CURRENT QUEST</div>
                     <div className='min-w-0 break-words font-semibold'>Learning NextJs</div>
-
-                    {/* <div className='animate-pulse text-pink-400'>
-                            {'>'}
-                          </div> */}
                 </div>
             </div>
 

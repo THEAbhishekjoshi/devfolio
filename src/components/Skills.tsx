@@ -51,7 +51,7 @@ export default function Skills() {
                         <div className="flex items-center gap-3">
                             <span className={`text-xs ${activeCategory.color}`}>{activeCategory.label}</span>
                             <span className="text-[0.4rem] text-white/30 tracking-widest uppercase">
-                                // {activeCategory.tag}
+                                {"//"}  {activeCategory.tag}
                             </span>
                         </div>
                         <div className="flex items-center gap-1.5">
