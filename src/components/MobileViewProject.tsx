@@ -22,12 +22,12 @@ export default function MobileViewProejct({ projectList }: { projectList: projec
                         </div>
 
                         <div className="p-4 flex-1 flex flex-col">
-                            <div className="relative h-[20rem] w-full rounded-t-md overflow-hidden">
+                            <div className="relative aspect-video w-full rounded-t-md overflow-hidden">
                                 <Image
                                     src={project.links.imageLink}
                                     fill
                                     alt={project.name}
-                                    className="object-cover"
+                                    className="object-contain"
                                 />
                             </div>
 

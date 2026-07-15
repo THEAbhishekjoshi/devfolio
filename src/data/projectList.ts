@@ -5,176 +5,108 @@ export type projectListType = {
     longDescription: string[];
     keyFeatures: string[];
     techStack: { name: string; iconLink: string }[];
-    links: { github: string; live: string, imageLink: string };
+    links: { github: string; live: string, imageLink: string, imageMobileLink: string, icon: string };
 }
 
 export const projectList = [
     {
-        id: "yu",
-        name: "Yuva",
-        shortDescription: "A comprehensive platform designed to connect young individuals with local clubs, organizations.A comprehensive platform designed to connect young individuals with local clubs, organizations.",
+        id: "chatbotGHJ",
+        name: "Chat Memory",
+        shortDescription: "An AI chatbot with both short-term and long-term memory that remembers conversations across different sessions.",
         longDescription: [
-            "Built an end-to-end event management system with robust authentication and secure payment gateway integration",
-            "Architected scalable backend infrastructure using Node.js and managed complex database schemas with PostgreSQL",
-            "Developed responsive frontend interfaces using React and integrated third-party APIs for seamless user experience",
-            "Implemented real-time notification services to keep users engaged and informed about relevant activities and events",
+            "This chatbot combines short-term conversation context with long-term memory stored in PostgreSQL.",
+            "Each user receives a unique session, allowing conversations to continue even after leaving and returning later.",
+            "Socket.IO is used to stream AI responses in real time for a faster and smoother chat experience.",
+            "The project demonstrates how conversational memory can make AI assistants feel more natural and personalized."
         ],
         keyFeatures: [
-            "Real-time Notification System ",
-            "Secure Payment Gateway Integration",
-            "Admin Dashboard",
+            "Short-term and long-term conversation memory",
+            "Real-time response streaming",
+            "Persistent chat history",
+            "Unique session management"
         ],
         techStack: [{ name: "react", iconLink: "/TechIcons/react.png" },
         { name: "node", iconLink: "/TechIcons/node.png" },
         { name: "postgres", iconLink: "/TechIcons/Postgres.png" },
+        { name: "supabase", iconLink: "/TechIcons/supabase.png" },
+        { name: "langchain", iconLink: "/TechIcons/langchain.png" },
+        { name: "react", iconLink: "/TechIcons/react.png" },
+        { name: "redux", iconLink: "/TechIcons/redux.png" },
+        { name: "typescript", iconLink: "/TechIcons/ts.svg" },
+        { name: "socket.io", iconLink: "/TechIcons/socket.svg" },
         ],
         links: {
-            github: "",
-            live: "",
-            imageLink: "/valley1.jpg",
+            github: "https://github.com/THEAbhishekjoshi/chat2bot",
+            live: "https://chat2bot-liard.vercel.app/",
+            imageLink: "/ProjectDemoImage/chatbot.png",
+            imageMobileLink: "/ProjectDemoImage/chatbot.png",
             icon: "/ProjectIcons/chatbot.svg"
         }
 
     },
     {
-        id: "hui",
+        id: "suryampaXH",
         name: "Suryamap",
-        shortDescription: "A comprehensive platform designed to connect young individuals with local clubs, organizations.Built an end-to-end event management system with robust authentication and secure payment gateway integrationBuilt an end-to-end event management system with robust authentication and secure payment gateway integration",
+        shortDescription: "An interactive dashboard that visualizes India's solar power generation data with maps, charts, and yearly performance analysis.",
         longDescription: [
-            "Developed and deployed a 3D solar power dashboard visualizing 6 years of state-wise data (2017–2023) using React,",
-            "D3.js/Chart.js, and Tailwind CSS.",
-            "Implemented dual visualization modes (dynamic tooltip map + static electricity generated map), enabling instant comparative analysis and improving data accessibility.",
-            "Built Top 5 State Insights and YoY growth analytics, automatically ranking states and highlighting performance trends",
-            "for faster decision-making.",
-            "Created a state-level deep-dive panel with tabular + graphical trend view, providing granular insights on annual generation and installed capacity.",
+            "Suryamap helps users explore more than six years of India's solar power generation data through interactive visualizations.",
+            "Users can switch between different map views to compare electricity generation across states.",
+            "The platform automatically calculates year-over-year growth and highlights the top-performing states.",
+            "Each state includes a detailed dashboard with tables and charts showing annual power generation and installed capacity."
         ],
         keyFeatures: [
-            "3D Interactive Visualization ",
-            "Automated Analytics Engine ",
-            "Deep Dive Analysis Panel ",
+            "Interactive solar power map",
+            "Year-over-year growth analysis",
+            "Top performing state rankings",
+            "State-wise detailed analytics"
         ],
-        techStack: [{ name: "react", iconLink: "/TechIcons/react.svg" },
-        { name: "node", iconLink: "/TechIcons/node.svg" },
-        { name: "postgres", iconLink: "/TechIcons/postgres.svg" },
+        techStack: [{ name: "react", iconLink: "/TechIcons/react.png" },
+        { name: "redux", iconLink: "/TechIcons/redux.png" },
+        { name: "typescript", iconLink: "/TechIcons/ts.svg" },
+        { name: "react simple maps", iconLink: "/TechIcons/reactSimpleMap2.png" },
         ],
         links: {
-            github: "",
-            live: "",
-            imageLink: "/charmander1.png",
+            github: "https://github.com/THEAbhishekjoshi/Suryamap",
+            live: "https://suryamap.vercel.app/",
+            imageLink: "/ProjectDemoImage/suryamap.png",
+            imageMobileLink: "/ProjectDemoImage/suryamap.png",
             icon: "/ProjectIcons/suryamap.svg"
         }
 
     },
     {
-        id: "hui3",
-        name: "Finance Tracker",
-        shortDescription: "A comprehensive platform designed to connect young individuals with local clubs, organizations.",
+        id: "cubeai",
+        name: "Cube",
+        shortDescription: "An AI-powered interview platform where candidates can take voice-based interviews and receive questions from an AI interviewer in real time.",
         longDescription: [
-            "Developed and deployed a 3D solar power dashboard visualizing 6 years of state-wise data (2017–2023) using React,",
-            "D3.js/Chart.js, and Tailwind CSS.",
-            "Implemented dual visualization modes (dynamic tooltip map + static electricity generated map), enabling instant comparative analysis and improving data accessibility.",
-            "Built Top 5 State Insights and YoY growth analytics, automatically ranking states and highlighting performance trends",
-            "for faster decision-making.",
-            "Created a state-level deep-dive panel with tabular + graphical trend view, providing granular insights on annual generation and installed capacity.",
+            "Cube is a full-stack AI interview platform that simulates a real technical interview using voice conversations.",
+            "The application streams audio in real time using WebSockets, allowing the AI interviewer to respond naturally without long delays.",
+            "It automatically checks the user's microphone and camera before starting the interview and detects long periods of silence to improve the interview experience.",
+            "All interview sessions and transcripts are stored securely using PostgreSQL and Prisma, making it easy to review previous interviews."
         ],
         keyFeatures: [
-            "3D Interactive Visualization - Implemented React + D3.js to create a 3D solar power dashboard with dynamic tooltip and static electricity generated map visualizations.",
-            "Automated Analytics Engine - Built Top 5 State Insights and YoY growth analytics that automatically ranks states and highlights performance trends for faster decision-making.",
-            "Deep Dive Analysis Panel - Developed a state-level deep-dive view with tabular + graphical trend analysis providing granular insights on annual generation and installed capacity.",
+            "Real-time AI voice interviews with audio streaming",
+            "Automatic microphone and camera readiness checks",
+            "Silence detection during interviews",
+            "Interview history and transcript storage"
         ],
-        techStack: [{ name: "react", iconLink: "/TechIcons/react.svg" },
-        { name: "node", iconLink: "/TechIcons/node.svg" },
-        { name: "postgres", iconLink: "/TechIcons/postgres.svg" },
+        techStack: [{ name: "react", iconLink: "/TechIcons/react.png" },
+        { name: "redux", iconLink: "/TechIcons/redux.png" },
+        { name: "typescript", iconLink: "/TechIcons/ts.svg" },
+        { name: "node", iconLink: "/TechIcons/node.png" },
+        { name: "postgres", iconLink: "/TechIcons/Postgres.png" },
+        { name: "supabase", iconLink: "/TechIcons/supabase.png" },
+        { name: "langchain", iconLink: "/TechIcons/langchain.png" },
+        { name: "socket.io", iconLink: "/TechIcons/socket.svg" },
         ],
         links: {
-            github: "",
-            live: "",
-            imageLink: "",
-            icon: "/ProjectIcons/cubeai.svg"
+            github: "https://github.com/THEAbhishekjoshi/CubeAi-Interview",
+            live: "https://cube-ai-interview.vercel.app/",
+            imageLink: "/ProjectDemoImage/cubeaiinterview.png",
+            imageMobileLink: "/ProjectDemoImage/cubeaiinterview_mobile.png",
+            icon: "/ProjectIcons/cubeaiinterview.png"
         }
 
     },
-    // {
-    //     id: "huih",
-    //     name: "ChatBot",
-    //     shortDescription: "A comprehensive platform designed to connect young individuals with local clubs, organizations.",
-    //     longDescription: [
-    //         "Developed and deployed a 3D solar power dashboard visualizing 6 years of state-wise data (2017–2023) using React,",
-    //         "D3.js/Chart.js, and Tailwind CSS.",
-    //         "Implemented dual visualization modes (dynamic tooltip map + static electricity generated map), enabling instant comparative analysis and improving data accessibility.",
-    //         "Built Top 5 State Insights and YoY growth analytics, automatically ranking states and highlighting performance trends",
-    //         "for faster decision-making.",
-    //         "Created a state-level deep-dive panel with tabular + graphical trend view, providing granular insights on annual generation and installed capacity.",
-    //     ],
-    //     keyFeatures: [
-    //         "3D Interactive Visualization ",
-    //         "Automated Analytics Engine ",
-    //         "Deep Dive Analysis Panel ",
-    //     ],
-    //     techStack: [{ name: "react", iconLink: "/temp_icon_1.png" },
-    //     { name: "node", iconLink: "/temp_icon_2.png" },
-    //     { name: "postgres", iconLink: "/temp_icon_3.png" },
-    //     ],
-    //     links: {
-    //         github: "",
-    //         live: "",
-    //         imageLink: ""
-    //     }
-    // },
-    // {
-    //     id: "hdddui",
-    //     name: "Mind Reader",
-    //     shortDescription: "A comprehensive platform designed to connect young individuals with local clubs, organizations.",
-    //     longDescription: [
-    //         "Developed and deployed a 3D solar power dashboard visualizing 6 years of state-wise data (2017–2023) using React,",
-    //         "D3.js/Chart.js, and Tailwind CSS.",
-    //         "Implemented dual visualization modes (dynamic tooltip map + static electricity generated map), enabling instant comparative analysis and improving data accessibility.",
-    //         "Built Top 5 State Insights and YoY growth analytics, automatically ranking states and highlighting performance trends",
-    //         "for faster decision-making.",
-    //         "Created a state-level deep-dive panel with tabular + graphical trend view, providing granular insights on annual generation and installed capacity.",
-    //     ],
-    //     keyFeatures: [
-    //         "3D Interactive Visualization - Implemented React + D3.js to create a 3D solar power dashboard with dynamic tooltip and static electricity generated map visualizations.",
-    //         "Automated Analytics Engine - Built Top 5 State Insights and YoY growth analytics that automatically ranks states and highlights performance trends for faster decision-making.",
-    //         "Deep Dive Analysis Panel - Developed a state-level deep-dive view with tabular + graphical trend analysis providing granular insights on annual generation and installed capacity.",
-    //     ],
-    //     techStack: [{ name: "react", iconLink: "/temp_icon_1.png" },
-    //     { name: "node", iconLink: "/temp_icon_2.png" },
-    //     { name: "postgres", iconLink: "/temp_icon_3.png" },
-    //     ],
-    //     links: {
-    //         github: "",
-    //         live: "",
-    //         imageLink: ""
-    //     }
-
-    // },
-    // {
-    //     id: "huihh",
-    //     name: "Suryamap",
-    //     shortDescription: "A comprehensive platform designed to connect young individuals with local clubs, organizations.",
-    //     longDescription: [
-    //         "Developed and deployed a 3D solar power dashboard visualizing 6 years of state-wise data (2017–2023) using React,",
-    //         "D3.js/Chart.js, and Tailwind CSS.",
-    //         "Implemented dual visualization modes (dynamic tooltip map + static electricity generated map), enabling instant comparative analysis and improving data accessibility.",
-    //         "Built Top 5 State Insights and YoY growth analytics, automatically ranking states and highlighting performance trends",
-    //         "for faster decision-making.",
-    //         "Created a state-level deep-dive panel with tabular + graphical trend view, providing granular insights on annual generation and installed capacity.",
-    //     ],
-    //     keyFeatures: [
-    //         "3D Interactive Visualization - Implemented React + D3.js to create a 3D solar power dashboard with dynamic tooltip and static electricity generated map visualizations.",
-    //         "Automated Analytics Engine - Built Top 5 State Insights and YoY growth analytics that automatically ranks states and highlights performance trends for faster decision-making.",
-    //         "Deep Dive Analysis Panel - Developed a state-level deep-dive view with tabular + graphical trend analysis providing granular insights on annual generation and installed capacity.",
-    //     ],
-    //     techStack: [{ name: "react", iconLink: "/temp_icon_1.png" },
-    //     { name: "node", iconLink: "/temp_icon_2.png" },
-    //     { name: "postgres", iconLink: "/temp_icon_3.png" },
-    //     ],
-    //     links: {
-    //         github: "",
-    //         live: "",
-    //         imageLink: ""
-    //     }
-    // },
 
 ]

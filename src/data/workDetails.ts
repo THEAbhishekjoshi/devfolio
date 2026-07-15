@@ -4,10 +4,10 @@ export const workDetails = [
         company: "Excellence Technologies",
         role: "Full stack developer",
         location: "Noida(on-site)",
-        working: true,
+        working: false,
         stats: {
             class: "Full-Stack / AI",
-            expGained: "LangChain, Next.js, Automation",
+            expGained: "LangChain, Next.js, n8n, LLM Apis",
             difficulty: "Medium"
         },
         responsibilities: [
@@ -44,7 +44,7 @@ export const workDetails = [
         working: false,
         stats: {
             class: "Frontend Intern",
-            expGained: "React, UI Design, Team Work",
+            expGained: "React, State Management, NodeJs, Reading Docs",
             difficulty: "Medium"
         },
         responsibilities: [

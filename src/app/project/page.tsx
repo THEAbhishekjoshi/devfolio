@@ -2,33 +2,17 @@
 
 import { projectList } from "@/data/projectList"
 import { ChevronLeft, ChevronRight, Lock } from "lucide-react"
-import { div } from "motion/react-client"
 import Image from "next/image"
 import { useState } from "react"
 
 const pageSize = 4
-export default function project() {
+export default function Project() {
     const [activeProject, setActiveProject] = useState(projectList[0])
     const [page, setPage] = useState<number>(0)
     const totalPages = Math.ceil(projectList.length / pageSize)
     const pageItems = projectList.slice(page * pageSize, page * pageSize + pageSize)
     const isLastPage = page === totalPages - 1
     const showComingSoon = isLastPage && pageItems.length < pageSize
-
-    // const movePage = (move: "up" | "down") => {
-    //     let nextMove = 0
-    //     // up
-    //     if (page > 0) {
-    //         nextMove++
-    //         setPage(nextMove)
-    //     }
-    //     // down
-    //     if (page < totalPages) {
-    //         nextMove--
-    //         setPage(nextMove)
-    //     }
-
-    // }
 
 
     return (
@@ -130,12 +114,12 @@ export default function project() {
 
 
                         {/* Project Image */}
-                        <div className="relative h-[20rem] w-full rounded-t-md overflow-hidden">
+                        <div className="relative aspect-video lg:h-[20rem] w-full rounded-t-md overflow-hidden">
                             <Image
                                 src={activeProject.links.imageLink}
                                 fill
                                 alt={activeProject.name}
-                                className="object-cover"
+                                className="object-contain lg:object-cover"
                             />
                         </div>
 
@@ -143,7 +127,7 @@ export default function project() {
 
                     <div className="">
                         <div className="flex flex-col gap-2">
-                            <div className="text-lg lg:text-xl font-bold hover:text-pink-400 cursor-pointer transition-colors">{activeProject.name}</div>
+                            <div className="text-sm md:text-lg lg:text-xl font-bold hover:text-pink-400 cursor-pointer transition-colors uppercase">{activeProject.name}</div>
                             <div className="text-xs md:text-sm font-space font-semibold text-white/90">{activeProject.shortDescription}</div>
                         </div>
                         <div className="grid grid-cols-1 gap-6 mt-5">

@@ -32,7 +32,7 @@ export default function WorkPage() {
     }
 
     return (
-        <div className="min-h-screen bg-black text-white font-press p-4 md:p-8 mt-5">
+        <div className="min-h-screen text-white font-press p-4 md:p-8 mt-5">
             {/* Page Title */}
             <div className="max-w-6xl mx-auto mb-8 flex justify-between items-center border-b border-zinc-800 pb-4">
                 <h1 className="text-lg md:text-xl lg:text-2xl tracking-wider uppercase font-extrabold flex items-center gap-2">
@@ -209,19 +209,19 @@ export default function WorkPage() {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 bg-zinc-900/40 p-3 border border-zinc-900/80 text-xs">
                             <div>
                                 <span className="text-zinc-500 uppercase block">Main Attributes</span>
-                                <span className="text-yellow-500 font-semibold font-space mt-2">{activeJob.stats.class}</span>
+                                <span className="text-yellow-500 font-semibold font-space mt-2 block">{activeJob.stats.class}</span>
                             </div>
                             <div>
                                 <span className="text-zinc-500 uppercase block">Difficulty</span>
-                                <span className=" font-bold uppercase font-space mt-2s">{activeJob.stats.difficulty}</span>
+                                <span className=" font-bold font-space mt-2 block">{activeJob.stats.difficulty}</span>
                             </div>
                             <div>
                                 <span className="text-zinc-500 uppercase block">Location</span>
-                                <span className="font-bold font-space mt-2">{activeJob.location}</span>
+                                <span className="font-bold font-space mt-2 block">{activeJob.location}</span>
                             </div>
                             <div>
                                 <span className="text-zinc-500 uppercase block">Duration</span>
-                                <span className="font-bold font-space mt-2">{activeJob.duration}</span>
+                                <span className="font-bold font-space mt-2 block">{activeJob.duration}</span>
                             </div>
                             <div>
                                 <span className="text-zinc-500 uppercase block">Exp Unlocked</span>
