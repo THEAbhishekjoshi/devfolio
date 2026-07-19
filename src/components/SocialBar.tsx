@@ -130,7 +130,7 @@ export default function SocialBar() {
             &quot;The powerful play goes on and you may contribute a verse. What will your verse be?.&quot;
           </p>
           <p className="flex justify-end text-white/80 italic text-[0.7rem] sm:text-[0.8rem] lg:text-[0.8rem] leading-relaxed tracking-wider break-words  text-center lg:text-right pr-2 lg:pr-0">
-            - Steve Jobs
+            - Dead Poets Society
           </p>
         </div>
       </div>

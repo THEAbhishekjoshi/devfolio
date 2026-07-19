@@ -27,7 +27,7 @@ export const projectList = [
         ],
         techStack: [{ name: "react", iconLink: "/TechIcons/react.png" },
         { name: "node", iconLink: "/TechIcons/node.png" },
-        { name: "postgres", iconLink: "/TechIcons/Postgres.png" },
+        { name: "postgres", iconLink: "/TechIcons/postgres.png" },
         { name: "supabase", iconLink: "/TechIcons/supabase.png" },
         { name: "langchain", iconLink: "/TechIcons/langchain.png" },
         { name: "react", iconLink: "/TechIcons/react.png" },
@@ -69,7 +69,7 @@ export const projectList = [
             github: "https://github.com/THEAbhishekjoshi/Suryamap",
             live: "https://suryamap.vercel.app/",
             imageLink: "/ProjectDemoImage/suryamap.png",
-            imageMobileLink: "/ProjectDemoImage/suryamap.png",
+            imageMobileLink: "/ProjectDemoImage/suryamap2.png",
             icon: "/ProjectIcons/suryamap.svg"
         }
 

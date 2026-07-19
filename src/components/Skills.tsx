@@ -19,7 +19,7 @@ export default function Skills() {
                             key={cat.id}
                             onClick={() => setActiveTab(cat.id)}
                             className={`
-                                flex-1 py-2 px-2 sm:px-4 rounded-sm text-[0.45rem] sm:text-[0.55rem] 
+                                flex-1 gap-1.5 py-2 px-2 sm:px-4 rounded-sm text-[0.45rem] sm:text-[0.55rem] 
                                 tracking-wider transition-all duration-300 cursor-pointer
                                 ${activeTab === cat.id
                                     ? `${cat.color} bg-white/10 `
@@ -27,10 +27,10 @@ export default function Skills() {
                                 }
                             `}
                         >
-                            <span className={`mr-1.5 transition-opacity duration-200 ${activeTab === cat.id ? "opacity-100" : "opacity-0"}`}>
+                            <span className={`mr-1.5 text-base transition-opacity duration-200 ${activeTab === cat.id ? "opacity-100" : "opacity-0"}`}>
                                 ▸
                             </span>
-                            {cat.label}
+                            <span>{cat.label}</span>
                         </button>
                     ))}
                 </div>

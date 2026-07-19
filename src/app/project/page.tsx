@@ -114,7 +114,7 @@ export default function Project() {
 
 
                         {/* Project Image */}
-                        <div className="relative aspect-video lg:h-[20rem] w-full rounded-t-md overflow-hidden">
+                        <div className="relative aspect-video lg:h-[22rem] w-full overflow-hidden">
                             <Image
                                 src={activeProject.links.imageLink}
                                 fill

@@ -1,12 +1,31 @@
 'use Client'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { projectListType } from "@/data/projectList"
 import { motion } from "framer-motion"
 import Image from "next/image"
 
 
 export default function DesktopViewProject({ projectList }: { projectList: projectListType[] }) {
-    const [activeProject, setActiveProject] = useState(projectList[0]);
+    const MAX_PROJECTS = Math.min(projectList.length, 5)
+    const DURATION = 8000
+    const [activeIndex, setActiveIndex] = useState(0)
+    const [paused, setPaused] = useState(false)
+    const activeProject = projectList[activeIndex]
+
+
+    const handleSelectProject = (index: number) => {
+        setPaused(true)
+        setActiveIndex(index)
+    }
+
+    useEffect(() => {
+        if (paused) return
+        const timeout = setTimeout(() => {
+            setActiveIndex(prev => (prev + 1) % MAX_PROJECTS)
+        }, DURATION)
+
+        return () => clearTimeout(timeout)
+    }, [activeIndex, MAX_PROJECTS, paused])
     return (
         <div className="grid grid-rows-2 lg:grid-cols-2 lg:grid-rows-none gap-4 ">
 
@@ -16,14 +35,41 @@ export default function DesktopViewProject({ projectList }: { projectList: proje
                     <motion.div
                         whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                         whileTap={{ scale: 0.98 }}
-                        onHoverStart={() => setActiveProject(proj)}
+                        onMouseEnter={() => {
+                            setPaused(true)
+                            setActiveIndex(idx)
+                        }}
+
+                        onMouseLeave={() => {
+                            setPaused(false)
+                        }}
+
+                        onClick={() => {
+                            setPaused(true)
+                            setActiveIndex(idx)
+                        }}
                         key={proj.id}
-                        className={`flex flex-row rounded-md p-3 gap-6 cursor-pointer transition-colors ${activeProject.id === proj.id ? 'bg-white/20' : 'hover:bg-white/10'
+                        className={`flex flex-row rounded-md p-3 gap-6 cursor-pointer transition-colors ${activeIndex === idx ? 'bg-white/20' : 'hover:bg-white/10'
                             }`}
                     >
 
                         <div className="text-xl lg:text-2xl font-bold opacity-80 mt-1">
-                            {idx < 9 ? `0${idx + 1}` : idx + 1}
+                            <div className="">
+                                {idx < 9 ? `0${idx + 1}` : idx + 1}
+                            </div>
+
+                            {activeIndex === idx && (
+                                <motion.div
+                                    key={`${activeIndex}-${paused}`}
+                                    className="pb-2 border-b-4 rounded-sm  origin-left"
+                                    initial={{ scaleX: paused ? 1 : 0 }}
+                                    animate={{ scaleX: 1 }}
+                                    transition={{
+                                        duration: paused ? 0 : DURATION / 1000,
+                                        ease: "linear",
+                                    }}
+                                />
+                            )}
                         </div>
                         <div className="flex flex-col gap-1">
                             <div className="text-md lg:text-lg font-semibold ">{proj.name}</div>
@@ -83,7 +129,7 @@ export default function DesktopViewProject({ projectList }: { projectList: proje
                                 <span className="text-xs text-yellow-400 uppercase tracking-widest font-bold">Built With</span>
                                 <div className="flex flex-row gap-3 ">
                                     {activeProject.techStack.map((tech, index) => (
-                                        <div key={index} className="flex flex-col items-center">
+                                        <div key={index} className="flex flex-col items-center" title={tech.name}>
                                             <Image
                                                 src={tech.iconLink}
                                                 width={24}
